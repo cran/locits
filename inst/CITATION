@@ -1,0 +1,32 @@
+citHeader("To cite the 'locits' package in publications use:")
+
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date, perl = TRUE)
+vers <- paste("R package version", meta$Version)
+
+citEntry(entry="Manual",
+         title = "locits: Tests of stationarity and localized autocovariance",
+         author = personList(as.person("Guy Nason")),
+         year = year,
+         note = vers,
+
+         textVersion =
+         paste("Guy Nason (",
+               year,
+               "). locits: Tests of stationarity and localized autocovariance.",
+               vers, ".", sep=""))
+
+citEntry(entry="Article",
+         title = "A test for second-order stationarity and approximate confidence intervals for localized autocovariances for locally stationary time series",
+         author = personList(as.person("G. P. Nason")),
+	 journal = "Journal of the Royal Statistical Society, Series B",
+	volume=75,
+         year     = "2013",
+	pages="879--904",
+         url      = "http://www.stats.bris.ac.uk/~guy",
+         textVersion =
+         paste("Nason, G.P. (2013)",
+  	       "A test for second-order stationarity and approximate
+	confidence intervals for localized autocovariances for locally
+	stationary time series.",
+               "Journal of the Royal Statistical Society, Series B 75:879--904")
+)

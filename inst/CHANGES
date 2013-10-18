@@ -1,0 +1,34 @@
+1.1:	a. Changed ALL references from lacv to lacf
+
+	Primary reason: to prevent clashes between this package and costat
+
+	Secondary reason: the autocovariance function in R for stationary
+	series is called acf, so the time-varying one should be called
+	lacf, should it not? 
+
+	b. if the WPsmooth.type argument of lacf is "RM" then the
+	behaviour of the binwidth argument is now different. If
+	the argument binwidth is missing or set to zero then an automatic
+	bandwidth is selected using the AutoBestBW function.
+
+	c. Added a new argument to plot.lacf.
+
+	The new argument is plot.it. If TRUE then a plot is produced,
+	if FALSE then no plot is produced. In both cases the values
+	that *would* have been plotted are returned (invisibly). In this
+	way the plot.lacf function can be used as an extractor functon.
+
+1.2:	Added plotcor=FALSE option for plot.lacf and plot.lacfCI for the
+	type="line" plot. This permits plotting
+	of the localized autocovariance function as a line plot
+
+	Improved vertical (y) axis labelling by changing "ACF" to
+	"Autocorrelation" and "ACF (cov)" to "Autocovariance"
+
+	Changed lacf so that if lag.max=NULL then the same lag.max
+	as in acf is used (this is 10*log(length(x)))
+
+1.3:	changed code internally so that any xlab or ylab values supplied
+	to plot.lacf or plot.lacfCI do not get obliterated.
+
+1.4:	added references to paper where underpinning research was carried out
