@@ -1,6 +1,6 @@
 AutoBestBW <-
 function (x, filter.number = 1, family = "DaubExPhase", smooth.dev = var, 
-    AutoReflect = TRUE, tol = 0.1, maxits = 5, 
+    AutoReflect = TRUE, tol = 0.01, maxits = 200, 
     plot.it = FALSE, verbose = 0, ReturnAll=FALSE) 
 {
     EWS <- ewspec3(x = x, filter.number = filter.number, family = family, 

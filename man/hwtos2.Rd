@@ -20,7 +20,10 @@ hwtos2(x, alpha = 0.05, filter.number = 1, family = "DaubExPhase",
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{x}{The time series you want to test for second order
-	stationarity.
+	stationarity. This should be a stochastic series. The function
+	will report an error if \code{x} is a constant function. The
+	function might not work properly if it contains a significant trend
+	or patches of non-stochastic observations.
 }
   \item{alpha}{The overall (nominal) size of the test.
 }

@@ -1,42 +1,30 @@
-\name{summary.tos}
-\alias{summary.tos}
+\name{summary.tosANYN}
+\alias{summary.tosANYN}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Summarize the results of a test of stationarity contained i
-	a \code{tos} object.
-	
+\title{Summarize the results of a test of stationarity contained
+in an \code{tosANYN} class object. 
 }
-\description{This function summarizes the results of a \code{tos}
+\description{This function summarizes the results of a \code{tosANYN}
 	object that contains information about a test of stationarity.
 	The summary function prints out information about how many
-	individual hypothesis tests there were, how many were rejected
-	and what the (equivalent) rejection p-value was (in the last cases
-	both for FDR and Bonferroni). If the hypothesis of stationarity
+	individual hypothesis tests there were, how many were rejected.
+	If the hypothesis of stationarity
 	is rejected then the routine also prints out a list of the Haar
 	wavelet coefficients (and their scales, locations and scale of
 	the wavelet periodogram) that were significant.
 	The function also returns a lot of this information (invisibly).
 }
 \usage{
-\method{summary}{tos}(object, size = 0.05, quiet = FALSE, mctype = "FDR", ...)
+\method{summary}{tosANYN}(object, quiet = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{object}{The output from a function that carries out a test
-	of stationarity, e.g. \code{\link{hwtos2}}.
-}
-  \item{size}{The nominal overall significance level of the test.
-}
+	of stationarity, e.g. \code{\link{hwtos}}.}
   \item{quiet}{If this argument is \code{TRUE} then nothing is printed
 	to the screen, although the information is still returned as
 	an object. If \code{FALSE} then this function prints out
 	the information about the hypothesis test.
-}
-  \item{mctype}{This argument can be \code{"FDR"} for false discovery
-	rate or \code{"BON"} for Bonferroni. This argument does not
-	effect the basis printout. However, it does control whether
-	FDR or Bonferroni rejects are listed, and it does control
-	the type of information returned by the function (whether
-	FDR or Bonferroni info).
 }
   \item{...}{Other arguments}
 }
@@ -63,12 +51,12 @@ Guy Nason.
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{\code{\link{hwtos2}}, \code{\link{print.tos}}
+\seealso{\code{\link{hwtos}}, \code{\link{print.tosANYN}}
 }
 \examples{
 #
-# See example for hwtos2, this contains two examples where
-# summary.tos (as summary(.) is used in the output.
+# See example for hwtos, this contains two examples where
+# summary.tosANYN (as summary(.) is used in the output.
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

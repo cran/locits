@@ -32,3 +32,43 @@
 	to plot.lacf or plot.lacfCI do not get obliterated.
 
 1.4:	added references to paper where underpinning research was carried out
+
+1.5:	added new function hwtos which performs the stationarity test for
+	data which is of arbitrary length (not just power of two length
+	data which is handled by hwtos2). The new hwtos function relies
+	on the function hwt to compute the "arbitrary length" Haar wavelet
+	transform which can be decimated or nondecimated. The hwtos
+	function returns an object of class tosANYN and there are three
+	new methods: plot.tosANYN, summary.tosANYN and print.tosANYN
+	to plot, summarize and print the information
+
+	The new function hwt computes the Haar wavelet transform on data
+	with an arbitrary number of data points, not just a power of two.
+	It can compute the decimated and nondecimated version. This
+	transform can be plotted, printed and summarized with new methods.
+
+1.6:	Added EstBetaCov function which computes the covariance matrix
+	of the smoothed wavelet periodogram at a given location
+
+	Added an extra message which catches the situation of a constant
+	function more gracefully. The code is designed for stochastic
+	series. [Thanks to a user of an earlier version for notifying
+	me about this]
+
+1.7:	corrected bug in calculation of covariance of raw
+	wavelet periodogram. The covariance is only twice the square
+	of the betas when ell=j and m=n
+
+	This bug manifested itself mostly in plots of the confidence
+	intervals for local autocorrelations. E.g. in Nason (2013)
+	Figure 5, the confidence interval for the third lag coefficient
+	was zero, and this is just wrong. After the bugfix these variances
+	are estimated correctly and they are more plausible! 
+
+	The defaults of AutoBestBW have been changed to tol=0.01 (from 0.1) and
+	maxits=5 to maxits=200
+
+1.7.1	Documented EstBetaCov function and added some argument checking.
+	Corrected mismatch between documentation and code for AutoBestBW
+
+	Removed hwtos function and its methods (not ready for prime time yet)

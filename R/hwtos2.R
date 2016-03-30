@@ -6,6 +6,11 @@ function(x, alpha=0.05, filter.number=1, family="DaubExPhase", lowlev=3,
 if (any(is.na(x)))
 	stop("Some values are NA. This is not permitted")
 
+lx <- length(x)
+
+if (!IsPowerOfTwo(lx))
+	stop("Data length is not power of two. Please consider using the hwtos function instead")
+
 xS <- ewspecHaarNonPer(x, filter.number=filter.number, family=family, WPsmooth=FALSE)
 
 xWP <- xS$WavPer
@@ -82,6 +87,9 @@ for(i in (J-1):lowlev)	{
 		#cat("SD: Th1:Th2:Dat is:", the.varip, the.varip.new, data.sd, "\n")
 
 		the.varip <- max(the.varip.new, the.varip, data.sd)
+
+		if (the.varip==0)
+			stop("Variance is zero. Is your time series a constant function? This function only works on stochastic series")
 
 		StudT <- v/the.varip
 

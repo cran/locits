@@ -1,28 +1,23 @@
-\name{plot.tos}
-\alias{plot.tos}
+\name{plot.tosANYN}
+\alias{plot.tosANYN}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Produces a graphical representation of the results of a
-	test of stationarity contained in a \code{tos} object.
+	test of stationarity from a \code{tosANYN} object.
 }
-\description{After a test of stationarity for dyadic data
-	(e.g. \code{\link{hwtos2}})
+\description{After a test of stationarity (e.g. \code{\link{hwtos}})
 	is applied to a time series it generates a results object of
-	class \code{tos}. This function takes objects of that
+	class \code{tosANYN}. This function takes objects of that
 	class and produces a graphical representation of the test.
 }
 \usage{
-\method{plot}{tos}(x, mctype = "FDR", sub = NULL, xlab = "Time",
+\method{plot}{tosANYN}(x, sub = NULL, xlab = "Time",
     arrow.length = 0.05, verbose = FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{x}{The \code{tos} class object, the results of the
+  \item{x}{The \code{tosANYN} class object, the results of the
 	test of stationarity that you wish to plot.
 }
- \item{mctype}{Whether you wish to see rejections (if they exist)
-        according to a Bonferroni assessment (\code{"BON"}) or
-        according to FDR (\code{"FDR"})}
-
   \item{sub}{An argument to change the subtitle.
 }
   \item{xlab}{An argument to change the x-axis label.
@@ -48,9 +43,8 @@
 	were rejected as being nonzero.
 
 	If the test indicated that the series was nonstationary then
-	the subtitle indicates this by stating the number of rejections
-	(this might be according to FDR or Bonferroni depending on 
-	the setting of the \code{mctype} argument. Then graphical
+	the subtitle indicates this by stating the number of rejections.
+	Then graphical
 	representations of any significant Haar wavelet coefficients
 	are plotted as double-headed red horizontal arrows on the plot.
 	The horizontal extent corresponds to the support of the underlying
@@ -58,7 +52,7 @@
 	of the wavelet periodogram scale where the significant coefficient
 	was found. The wavelet periodogram scales are indexed by the right
 	hand axis, and beware, the numbers might not be consecutive, but
-	they will be ordered (so e.g. if no signficant coefficients were
+	the will be ordered (so e.g. if no signficant coefficients were
 	discovered at wavelet periodogram scale level 6, then that scale/axis
 	label will not appear). The scale within the Haar wavelet transform
 	is indicated by the vertical position WITHIN ticks between
@@ -70,7 +64,7 @@
 	to different Haar wavelet transform scales AT wavelet periodogram
 	level 4. It is not usually possible to tell precisely which
 	Haar wavelet transform scale the coefficients can come from,
-	but the information can be extracted from the \code{\link{summary.tos}}
+	but the information can be extracted from the \code{\link{summary.tosANYN}}
 	function which lists this.
 }
 \value{None.
@@ -87,7 +81,7 @@ Guy Nason.
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
-\seealso{\code{\link{hwtos2}}, \code{\link{summary.tos}}
+\seealso{\code{\link{hwtos}}, \code{\link{summary.tosANYN}}
 }
 \examples{
 #
@@ -97,7 +91,7 @@ Guy Nason.
 # Note that the input time series is two concatenated white noise
 # sequences with very different variances.
 #
-answer <- hwtos2(c(rnorm(256), rnorm(256, sd=5)))
+\dontrun{answer <- hwtos(c(rnorm(256), rnorm(256, sd=5)))}
 \dontrun{plot(answer)}
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

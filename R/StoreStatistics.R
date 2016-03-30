@@ -1,7 +1,7 @@
 StoreStatistics <-
 function () 
 {
-ans <- .C("StoreStatistics", lfound = as.integer(0), lstored=as.integer(0), loutside=as.integer(0), PACKAGE="locits")
+ans <- .C("StoreStatistics", lfound = as.double(0), lstored=as.double(0), loutside=as.double(0), PACKAGE="locits")
 
 loutside <- ans$loutside
 lstored <- ans$lstored

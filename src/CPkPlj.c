@@ -1,10 +1,21 @@
 #include <R.h>
 
-#define	MAXELL	20
-#define	MAXJ	20
-#define MAXK	20
-#define MAXD	1000
-#define DOFFSET	500 /* SHould be half MAXD */
+/* Parameters that control the storage for pre-computed values */
+
+
+#define	MAXELL	25
+#define	MAXJ	25
+#define MAXK	25
+#define MAXD	2000
+#define DOFFSET	1000 /* SHould be half MAXD */
+
+/* A big store
+#define	MAXELL	25
+#define	MAXJ	25
+#define MAXK	25
+#define MAXD	30000
+#define DOFFSET	15000 
+*/
 /*
 #define	MAXELL	0
 #define	MAXJ	0
@@ -15,7 +26,7 @@
 
 static double ThmStore[MAXELL][MAXJ][MAXK][MAXD];
 static char ValExists[MAXELL][MAXJ][MAXK][MAXD];
-int nfound, nstored, noutside;
+double nfound, nstored, noutside;
 
 #define TRUE	1
 #define FALSE	0
@@ -40,12 +51,12 @@ for(ell=0; ell < MAXELL; ++ell)
     		ThmStore[ell][j][k][d] = 0.0;		    
 	    }
 
-nfound = nstored = noutside = 0;
+nfound = nstored = noutside = 0.0;
 
 *error = 0;
 }
 
-void StoreStatistics(int *lfound, int *lstored, int *loutside)
+void StoreStatistics(double *lfound, double *lstored, double *loutside)
 {
 
 	*lfound = nfound;
@@ -169,8 +180,13 @@ if (*j < 0)	{
 	}
 
 
+/*
+ * Note: bug corrected here. Previous code did not also have the
+ * *ell == *j check. The following line is only true when the
+ * scales and locations are the same
+ */
 
-if (*m==*n)	
+if (*m==*n && *ell == *j)	
 	*ans = 2.0*(*(II+*ell-1))*(*(II+*j-1));
 
 else	{
@@ -218,7 +234,7 @@ else	{
 			}
 		else	/* Storage does not exist for this range of parms */
 			{
-				/*
+			/*
 			Rprintf("Out of range: calculating raw\n");
 			*/
 			CPkPlj(PsiJ+*(linPsiJ+k), lvPsiJ+k,
@@ -242,6 +258,42 @@ else	{
 
 }
 
+/* CstarIcov
+ *
+ * Computes the covariance of the running mean smooth of the wavelet
+ * periodogram. It calculates the covariance between \tilde{I}_{ell, nz}
+ * and \tilde{I}_{j, nz} where ell and j are scales and nz is the location.
+ * The quantity \tilde{I} is the smoothed periodogram (smoothed using a
+ * simple running mean of window width of s (formula (13) in the tech
+ * report version of the paper).
+ *
+ * Parameters are
+ *
+ * ell: one scale
+ * j: other scale
+ * nz: location
+ * s: smoothing bandwidth
+ * TT: length of series
+ * IIvec: the entire smoothed wavelet periodogram (see call to CstarIcov
+ * 	for example of how this can be passed to this routine from R in the
+ * 	Rvarlacf function). Essentially, the whole smoothed wavelet periodgram
+ * 	matrix is passed as a vector to this routine.
+ * Svec: as for IIvec, except for the evolutionary wavelet estimator.
+ * J: number of scales associated with IIvec and Svec
+ *  PsiJ: the autocorrelation wavelet, in one big vector, finest scale first
+ *  lPsiJ: length of PsiJ vector
+ *  linPsiJ: array that contains entry points into PsiJ. First entry in
+ *	linPsiJ corresponds to finest scale (actually, 0),
+ *      Second entry in linPsiJ corresponds to second scale, etc.
+ *  lvPsiJ: length of each scale of autocorrelation coefficients
+ *  psil, lpsil: discrete wavelet at scale l, and its length
+ *  psij, lpsij: discrete wavelet at scale j, and its length
+ *  verbose: if 1, some messages, if 2, loads of messages
+ *  ans: the answer to return
+ *  error: the error code (which will be non zero if error occurs)
+ */
+
+
 void CstarIcov(int *ell, int *j, int *nz, int *s, int *TT,
 		double *IIvec, double *Svec, int *J,
 		double *PsiJ, int *lPsiJ, int *linPsiJ, int *lvPsiJ,
@@ -256,9 +308,8 @@ int u, v;
 int avpos;
 double LocalAns;
 double denom;
-void CcovIxscale();
+void CcovIxscale();	/* Calculates the covariance in Thm 1 of Nason2013*/
 
-LocalAns = 0.0;
 *ans = 0.0;
 *error = 0;
 
@@ -270,7 +321,9 @@ for(u=minlim; u <= maxlim; ++u)	{
 
 	for(v=minlim; v <= maxlim; ++v)	{
 
-		avpos = (u+v)/2;
+		LocalAns = 0.0;
+
+		avpos = (int)(((double)u+(double)v)/2.0);
 
 		CcovIxscale(ell, j, &u, &v,
 			IIvec + *J*(avpos-1),
@@ -290,8 +343,13 @@ for(u=minlim; u <= maxlim; ++u)	{
 	}
 
 /*
-Rprintf("nfound %d, ncomputed: %d; computed percent %lf\n", nfound, ncomputed, 100*(double)ncomputed/(double)(nfound+ncomputed));
+Rprintf("nfound %lf, ncomputed: %lf; computed percent %lf\n", nfound, ncomputed, 100*(double)ncomputed/(double)(nfound+ncomputed));
 */
+
+/*
+ * Denominator should really be the number that we calculated
+ */
+
 denom = 2.0*(double)*s + 1.0;
 denom = denom*denom;
 

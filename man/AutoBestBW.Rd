@@ -11,7 +11,7 @@ The idea is to obtain a good linear bandwidth.
 }
 \usage{
 AutoBestBW(x, filter.number = 1, family = "DaubExPhase",
-    smooth.dev = var, AutoReflect = TRUE, tol = 0.1, maxits = 5,
+    smooth.dev = var, AutoReflect = TRUE, tol = 0.01, maxits = 200,
     plot.it = FALSE, verbose = 0, ReturnAll = FALSE)
 }
 %- maybe also 'usage' for other objects documented here.

@@ -20,9 +20,14 @@ Type: \tab Package\cr
 Date: \tab 2013-10-18\cr
 License: \tab GPL-2\cr
 }
-For the test of stationarity the main function is
+For the test of stationarity there are two main functions.
+The original is
 the \code{\link{hwtos2}} function and this returns a
-\code{tos} object. The \code{\link{summary.tos}} function
+\code{tos} object. The \code{\link{hwtos2}} function
+works on data sets whose length is a power of two. Version 1.5
+introduced a new function, \code{\link{hwtos}} which carries out the
+test on arbitrary length data.
+The \code{\link{summary.tos}} function
 performs a Bonferroni and FDR statistical analysis to detect
 which Haar wavelet coefficients are significant. The
 function \code{\link{plot.tos}} provides a plot of the
