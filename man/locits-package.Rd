@@ -16,8 +16,8 @@
 \tabular{ll}{
 Package: \tab locits\cr
 Type: \tab Package\cr
-	Version: \tab 1.4\cr
-Date: \tab 2013-10-18\cr
+	Version: \tab 1.7.2\cr
+Date: \tab 2016-05-07\cr
 License: \tab GPL-2\cr
 }
 For the test of stationarity there are two main functions.

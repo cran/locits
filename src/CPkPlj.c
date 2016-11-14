@@ -3,11 +3,11 @@
 /* Parameters that control the storage for pre-computed values */
 
 
-#define	MAXELL	25
-#define	MAXJ	25
-#define MAXK	25
-#define MAXD	2000
-#define DOFFSET	1000 /* SHould be half MAXD */
+#define	MAXELL	20
+#define	MAXJ	20
+#define MAXK	20
+#define MAXD	1800
+#define DOFFSET	900 /* SHould be half MAXD */
 
 /* A big store
 #define	MAXELL	25

@@ -98,7 +98,7 @@ function (x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
             verbose = as.integer(Cverbose), ans = as.double(0), 
             error = as.integer(0), PACKAGE="locits")
         if (ans$error != 0) 
-            return
+            return()
         Sigma[ell, j] <- ans$ans
 	Sigma[j, ell] <- ans$ans
     }

@@ -72,3 +72,9 @@
 	Corrected mismatch between documentation and code for AutoBestBW
 
 	Removed hwtos function and its methods (not ready for prime time yet)
+
+1.7.2	Reduced some of the size of the static arrays, which was causing
+	problems on some Linux systems
+
+1.7.3	Statement "return" replaced by "return()" in EstBetaCov and Rvarlacf
+	as notified by Duncan Murdoch

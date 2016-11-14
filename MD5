@@ -1,10 +1,10 @@
-a532fac3bdb00d3094ba5f6cad77e3b5 *DESCRIPTION
+c9a6940692837375196abfb89825fc8f *DESCRIPTION
 b4f53ccec4b4276d0a49096b81947d2b *NAMESPACE
 93c82e1f5a01d048ed41ce909f1ab53c *R/AutoBestBW.R
 252297964691bed4098fff0bbc8d3f60 *R/Cvarip2.R
-e4a262223a9113c4df000b410717db67 *R/EstBetaCov.R
+e32c1748278f1b9d92bd009844fdecb2 *R/EstBetaCov.R
 65b880957984bb6de99a5b351ecfd019 *R/HwdS.R
-cb49582c4daa0d696d0eb2fc0d0d20ee *R/Rvarlacf.R
+7fb8058b4c974e1ddbcb81ad5879b38c *R/Rvarlacf.R
 b313bfe289e961af48cdfaf9916719bd *R/StoreStatistics.R
 60d7fe3bcb5e820deaf4547f13b136ab *R/covI.R
 34b724c0375dedf83f7a6b417bdbf6bf *R/covIwrap.R
@@ -38,7 +38,7 @@ d99b0d4a20bf3f88c5a2dcfc388a33ad *R/summary.tosANYN.R
 9d0c37f1a4032d05253557700a536a13 *R/varip2.R
 fb6d3735ff8952e3b3e838ad07bc9f8f *R/whichlevel.R
 728acd63db15c37b501f6684769bc933 *R/zeropad.R
-3a62b3fbe4985bc70c926604c142a028 *inst/CHANGES
+11f7d42398b828bd9ec0b615c2df6221 *inst/CHANGES
 51123f1f52b6bd3616a9907c4e53112e *inst/CITATION
 087797a96d88c3856118753e4a0af5ae *man/AutoBestBW.Rd
 74d2f76606b15afbacf81626559f5213 *man/Cvarip2.Rd
@@ -57,7 +57,7 @@ dccbf27dfedca4feabff9d267af06164 *man/hwt.Rd
 4f60714fe92a4ff14bcc66250669b895 *man/idlastzero.Rd
 cf62a264e505585f594ba08171983c50 *man/lacf.Rd
 dc4729da5f10125196daca6a3627b2d0 *man/littlevar.Rd
-452b0dc481c7bf4e780e4b7766bb9c2b *man/locits-package.Rd
+2cbe206baae7263dc54a296ccc163220 *man/locits-package.Rd
 95df2187bcb1d84b65021c015310bdae *man/mkcoef.Rd
 a619033f9c3c5681d9fa119cfbc9cba2 *man/plot.hwtANYN.Rd
 9a4df7fb9ed0e627608df77ac1264958 *man/plot.lacf.Rd
@@ -79,5 +79,5 @@ dfa6901165056a71505bb8e121db269a *man/tvar1sim.Rd
 cda571cea0586abb29a5373247dfef07 *man/varip2.Rd
 465ab02dd9bb615b2048d8252c556f0f *man/whichlevel.Rd
 9243a3dde36f5f5559b247cd9e0b11af *man/zeropad.Rd
-e9ea26e7d5662c957c1cd938ff34fe73 *src/CPkPlj.c
+8d8796b7bad90bfe33b750b1634aa0dd *src/CPkPlj.c
 af3cdb8182660b58106b316a31dbb291 *src/CcovI.c
