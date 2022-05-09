@@ -6,8 +6,16 @@
 #define	MAXELL	20
 #define	MAXJ	20
 #define MAXK	20
+/* SAFE VALUES
 #define MAXD	1800
-#define DOFFSET	900 /* SHould be half MAXD */
+#define DOFFSET	900  SHould be half MAXD 
+*/
+/* VALUES FOR MORE EXTREME CASES E.g. T=1024 */
+#define MAXD	5000
+#define DOFFSET	2500 /* SHould be half MAXD */
+/* */
+
+
 
 /* A big store
 #define	MAXELL	25
@@ -154,9 +162,8 @@ void CPkPlj();
 
 *error =0;
 
-/*
-Rprintf("CcovIxscale: ell=%d, j=%d, m=%d, n=%d\n", *ell, *j, *m, *n);
-*/
+if (*verbose >= 2)
+	Rprintf("CcovIxscale: ell=%d, j=%d, m=%d, n=%d\n", *ell, *j, *m, *n);
 
 
 if (*ell > *j)	{
@@ -195,15 +202,15 @@ else	{
 
 	d = *n - *m;
 
+	if (*verbose >= 2)	{
+		Rprintf("*ell-1: %d MAXELL: %d\n", *ell-1, MAXELL);
+		Rprintf("*j-1: %d MAXJ: %d\n", *j-1, MAXJ);
+		Rprintf("d: %d d+DOFFSET %d; MAXD: %d\n", d, d+DOFFSET, MAXD);
+	}
+
 	for(k=0; k < *J; ++k)	{
 
 
-		/*
-		Rprintf("*ell-1: %d MAXELL: %d\n", *ell-1, MAXELL);
-		Rprintf("*j-1: %d MAXJ: %d\n", *ell-1, MAXJ);
-		Rprintf("k: %d MAXK: %d\n", k, MAXK);
-		Rprintf("d: %d d+DOFFSET %d; MAXD: %d\n", d, d+DOFFSET, MAXD);
-		*/
 
 		/*
 		 * Storage here
@@ -213,41 +220,46 @@ else	{
 			(d+DOFFSET >= 0) && (d+DOFFSET < MAXD))	{
 			if (ValExists[*ell-1][*j-1][k][d+DOFFSET])	{
 			    rh = ThmStore[*ell-1][*j-1][k][d+DOFFSET];
-			    /*
-			    Rprintf("Found: %d %d %d %d\n", *ell, *j, k, d);
-			    */
-			    ++nfound;
 
+			    if (*verbose >= 2)
+			      Rprintf("Found: %d %d %d %d\n", *ell, *j, k, d);
+
+			    ++nfound;
 			    }
 
 			else	{
+				if (*verbose >= 1)
+			          Rprintf("About to compute and Store: %d %d %d %d", *ell, *j, k, d);
 				CPkPlj(PsiJ+*(linPsiJ+k), lvPsiJ+k,
 					psil, lpsil, psij, lpsij,
 					&d, &rh, verbose, error);
 				ThmStore[*ell-1][*j-1][k][d+DOFFSET] = rh;
 				ValExists[*ell-1][*j-1][k][d+DOFFSET] = TRUE;
-				/*
-			        Rprintf("Store: %d %d %d %d\n", *ell, *j, k, d);
-				*/
 				++nstored;
+				if (*verbose >= 1)
+					Rprintf("  Done\n");
 				}
 			}
 		else	/* Storage does not exist for this range of parms */
 			{
-			/*
-			Rprintf("Out of range: calculating raw\n");
-			*/
+			if (*verbose >= 1)
+			  Rprintf("Out of range: calculating raw. ell=%d j=%d k=%d d=%d  ", *ell, *j, k, d);
+
 			CPkPlj(PsiJ+*(linPsiJ+k), lvPsiJ+k,
 				psil, lpsil, psij, lpsij,
 				&d, &rh, verbose, error);
 			++noutside;
+
+			if (*verbose >= 1)
+			  Rprintf("  Done\n");
+
 			}
 
 
 		if (*error != 0)
 			return;
 
-		if (*verbose>=1)
+		if (*verbose>=2)
 			Rprintf("k: %d; S[k]: %lf; rh: %lf\n", k, *(S+k), rh);
 
 		bigsum += *(S+k) * rh;
@@ -299,6 +311,7 @@ void CstarIcov(int *ell, int *j, int *nz, int *s, int *TT,
 		double *PsiJ, int *lPsiJ, int *linPsiJ, int *lvPsiJ,
 		double *psil, int *lpsil,
 		double *psij, int *lpsij,
+		int *truedenom,
 		int *verbose,
 		double *ans, int *error)
 {
@@ -325,6 +338,9 @@ for(u=minlim; u <= maxlim; ++u)	{
 
 		avpos = (int)(((double)u+(double)v)/2.0);
 
+		if (*verbose >= 2)
+			Rprintf("Entering CcovIxscale: ");
+
 		CcovIxscale(ell, j, &u, &v,
 			IIvec + *J*(avpos-1),
 			Svec + *J*(avpos-1),
@@ -342,16 +358,25 @@ for(u=minlim; u <= maxlim; ++u)	{
 		}
 	}
 
-/*
-Rprintf("nfound %lf, ncomputed: %lf; computed percent %lf\n", nfound, ncomputed, 100*(double)ncomputed/(double)(nfound+ncomputed));
-*/
+if (*verbose >= 1)
+	Rprintf("nfound: %lf, noutside: %lf; computed percent %lf\n", nfound, noutside, 100*(double)noutside/(double)(nfound+noutside));
 
 /*
- * Denominator should really be the number that we calculated
+ * If *truedenom is TRUE then actually use the true number of terms in the
+ * sum as the denominator. If it is FALSE then use (2s+1) (both squared)
+ *
+ * Note, prior to version 1.7.4 there was no option and the FALSE route was
+ * default. Most of the time, when nz is away from the boundary there is no
+ * difference
  */
 
-denom = 2.0*(double)*s + 1.0;
-denom = denom*denom;
+if (*truedenom == TRUE)	{
+	denom = (double)(maxlim - minlim) + 1.0;
+	}
+else	{
+	denom = 2.0*(double)*s + 1.0;
+	}
 
+denom = denom*denom;
 *ans /= denom;
 }

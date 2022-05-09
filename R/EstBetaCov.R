@@ -3,7 +3,7 @@ function (x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
     AutoReflect = TRUE, WPsmooth.type = "RM", 
     binwidth = 0, mkcoefOBJ, ThePsiJ, Cverbose = 0, verbose=0, OPLENGTH = 10^5, 
     ABB.tol=0.1, ABB.plot.it=FALSE, ABB.verbose=0,
-    ABB.maxits=10, do.init=TRUE, ...) 
+    ABB.maxits=10, do.init=TRUE, truedenom=FALSE, ...) 
 {
     if (missing(nz))
 	stop("You need to specify nz")
@@ -95,6 +95,7 @@ function (x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
             linPsiJ = as.integer(linPsiJ), lvPsiJ = as.integer(lvPsiJ), 
             psil = as.double(psil), lpsil = as.integer(lpsil), 
             psij = as.double(psij), lpsij = as.integer(lpsij), 
+	    truedenom = as.integer(truedenom),
             verbose = as.integer(Cverbose), ans = as.double(0), 
             error = as.integer(0), PACKAGE="locits")
         if (ans$error != 0) 

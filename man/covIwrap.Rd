@@ -57,7 +57,8 @@ covIwrap(S, m, n, ll, storewrap, P)
 \references{Nason, G.P. (2013) A test for second-order stationarity and
 	approximate confidence intervals for localized autocovariances
 	for locally stationary time series. \emph{J. R. Statist. Soc.} B,
-	\bold{75}, 879-904.}
+	\bold{75}, 879-904.
+	\doi{10.1111/rssb.12015}}
 \author{
 Guy Nason.
 }
@@ -93,4 +94,4 @@ ans <- covIwrap(S=c(1/2, 1/4, 1/8, 1/16, 1/32), m=1, n=3, ll=5,
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ts}
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{kwd2}% __ONLY ONE__ keyword per line

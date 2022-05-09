@@ -12,7 +12,8 @@
 EstBetaCov(x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
     AutoReflect = TRUE, WPsmooth.type = "RM", binwidth = 0, mkcoefOBJ,
     ThePsiJ, Cverbose = 0, verbose = 0, OPLENGTH = 10^5, ABB.tol = 0.1,
-    ABB.plot.it = FALSE, ABB.verbose = 0, ABB.maxits = 10, do.init = TRUE, ...)
+    ABB.plot.it = FALSE, ABB.verbose = 0, ABB.maxits = 10, do.init = TRUE, 
+    truedenom=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -72,6 +73,11 @@ EstBetaCov(x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
 }
   \item{do.init}{Initialize stored statistics, for cache hit rate info.
 }
+  \item{truedenom}{If TRUE use the actual number of terms in the sum as
+	the denominator in the formula for the calculation of the
+	covariance of the smoothed periodogram. If FALSE use the
+	(2s+1)
+}
   \item{\dots}{Other arguments that are passed to the
 	\code{\link{ewspec3}} function.
 }
@@ -98,6 +104,7 @@ Nason, G.P. (2013) A test for second-order stationarity and
         approximate confidence intervals for localized autocovariances
         for locally stationary time series. \emph{J. R. Statist. Soc.} B,
         \bold{75}, 879-904.
+	\doi{10.1111/rssb.12015}
 }
 \author{Guy Nason
 }

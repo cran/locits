@@ -18,7 +18,7 @@ Rvarlacf(x, nz, filter.number = 1, family = "DaubExPhase",
     WPsmooth.type = "RM", binwidth = 0, mkcoefOBJ, ThePsiJ,
     Cverbose = 0, verbose = 0, OPLENGTH = 10^5, var.lag.max = 3,
     ABB.tol = 0.1, ABB.plot.it = FALSE, ABB.verbose = 0,
-    ABB.maxits = 10, ...)
+    ABB.maxits = 10, truedenom=FALSE, ...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -97,7 +97,12 @@ Rvarlacf(x, nz, filter.number = 1, family = "DaubExPhase",
   \item{ABB.maxits}{
 	The maximum number of iterations in the automatic bandwidth
 	golden section search.
-	
+}
+  \item{truedenom}{If TRUE use the actual number of terms in the sum as
+	the denominator in the formula for the calculation of the
+	covariance of the smoothed periodogram. If FALSE use the
+	eqn{(2s+1)^{-2}} (this was the default in versions prior to
+	1.7.4)
 }
   \item{\dots}{
 	Other arguments
@@ -139,7 +144,8 @@ Rvarlacf(x, nz, filter.number = 1, family = "DaubExPhase",
 \references{Nason, G.P. (2013) A test for second-order stationarity and
 	approximate confidence intervals for localized autocovariances
 	for locally stationary time series. \emph{J. R. Statist. Soc.} B,
-	\bold{75}, 879-904.}
+	\bold{75}, 879-904.
+	\doi{10.1111/rssb.12015}}
 \author{
 Guy Nason.
 }

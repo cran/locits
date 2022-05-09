@@ -78,3 +78,9 @@
 
 1.7.3	Statement "return" replaced by "return()" in EstBetaCov and Rvarlacf
 	as notified by Duncan Murdoch
+
+1.7.4	Changed CPkPlj.c to add a new option truedenom to CstarIcov
+
+1.7.5	Registered routines in locits_init.c in src directory. Added paper
+	reference and DOI to DESCRIPTION file. Changed maintainer email
+	address to Nason@Imperial, not Bristol. Added DOI to CITATION.

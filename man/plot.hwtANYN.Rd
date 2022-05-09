@@ -87,6 +87,7 @@ Nason, G.P. (2013) A test for second-order stationarity and
         approximate confidence intervals for localized autocovariances
         for locally stationary time series. \emph{J. R. Statist. Soc.} B,
         \bold{75}, 879-904.
+	\doi{10.1111/rssb.12015}
 
 Priestley, M.B. and Subba Rao (1969) A test for non-stationarity of
         time series. \emph{J. R. Statist. Soc. B}, \bold{31}, 140-149.
