@@ -18,7 +18,11 @@ int m,n;
 double covAA,covAB,covBB;
 double tmpans;
 
-void CcovI();
+void CcovI(double *S, int *lS, 
+		int *m, int *n, int *ll,
+		double *Pmat, int *ncP, int *nrP,
+		int *lP,
+		double *bigans);
 
 covAA = covAB = covBB = 0.0;
 

@@ -157,7 +157,11 @@ int k;
 int d;
 double bigsum;
 double rh;
-void CPkPlj();
+void CPkPlj(double *Pk, int *lPk,
+		double *psil, int *lpsil,
+		double *psij, int *lpsij,
+		int *d, 
+		double *ans, int *verbose, int *error);
 
 
 *error =0;
@@ -321,7 +325,15 @@ int u, v;
 int avpos;
 double LocalAns;
 double denom;
-void CcovIxscale();	/* Calculates the covariance in Thm 1 of Nason2013*/
+
+/* CcovIxscale: Calculates the covariance in Thm 1 of Nason2013*/
+void CcovIxscale(int *ell, int *j, int *m, int *n,
+                double *II, double *S, int *J,
+                double *PsiJ, int *lPsiJ, int *linPsiJ, int *lvPsiJ,
+                double *psil, int *lpsil,
+                double *psij, int *lpsij,
+                int *verbose,
+                double *ans, int *error);
 
 *ans = 0.0;
 *error = 0;

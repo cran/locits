@@ -84,3 +84,5 @@
 1.7.5	Registered routines in locits_init.c in src directory. Added paper
 	reference and DOI to DESCRIPTION file. Changed maintainer email
 	address to Nason@Imperial, not Bristol. Added DOI to CITATION.
+
+1.7.6	Added in proper C function prototypes

@@ -1,4 +1,4 @@
-02c68896169fad2223ec64c594e842f2 *DESCRIPTION
+b7775221633caf249a36893e5f2709c7 *DESCRIPTION
 d19039bbf486994ea58f72f8a154644b *NAMESPACE
 93c82e1f5a01d048ed41ce909f1ab53c *R/AutoBestBW.R
 252297964691bed4098fff0bbc8d3f60 *R/Cvarip2.R
@@ -38,8 +38,8 @@ d99b0d4a20bf3f88c5a2dcfc388a33ad *R/summary.tosANYN.R
 9d0c37f1a4032d05253557700a536a13 *R/varip2.R
 fb6d3735ff8952e3b3e838ad07bc9f8f *R/whichlevel.R
 728acd63db15c37b501f6684769bc933 *R/zeropad.R
-1961639f6f4f7f9efffa91b624b3d060 *build/partial.rdb
-c5a42dfc62fcb7069fa4d5ccb0f1896f *inst/CHANGES
+ea124a494ad7922985532ad3b308e4d5 *build/partial.rdb
+7992b173d4b96b3f226632a1cde91e43 *inst/CHANGES
 802eac3c7f648aac99cf090271a4ab1d *inst/CITATION
 d8caf5da99b2efbf2b2467c8a6d37054 *man/AutoBestBW.Rd
 5b080d025c4bde40a5e822a8fc0559a5 *man/Cvarip2.Rd
@@ -80,6 +80,6 @@ cbb9ae15c883ae5d2133730fcde9960a *man/summary.tos.Rd
 c1afc0b9912505e999d49c903c83d25b *man/varip2.Rd
 e998a2a70c9ca97bc8611129f58132f2 *man/whichlevel.Rd
 9243a3dde36f5f5559b247cd9e0b11af *man/zeropad.Rd
-0ba6dbd975066ea52d7c0c0a45896656 *src/CPkPlj.c
-af3cdb8182660b58106b316a31dbb291 *src/CcovI.c
+edac80747abc387f587f5a80b36696bb *src/CPkPlj.c
+5ed9d32d5de5f7bab701a8da03c82c33 *src/CcovI.c
 813ae01d9094b5ad7e64bcdef6740160 *src/locits_init.c
