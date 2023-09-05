@@ -86,3 +86,5 @@
 	address to Nason@Imperial, not Bristol. Added DOI to CITATION.
 
 1.7.6	Added in proper C function prototypes
+
+1.7.7	Removed old table from details in help page for locits-packages

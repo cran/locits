@@ -13,13 +13,6 @@
 	localized autocovariance and pointwise confidence intervals.
 }
 \details{
-\tabular{ll}{
-Package: \tab locits\cr
-Type: \tab Package\cr
-	Version: \tab 1.7.2\cr
-Date: \tab 2016-05-07\cr
-License: \tab GPL-2\cr
-}
 For the test of stationarity there are two main functions.
 The original is
 the \code{\link{hwtos2}} function and this returns a
