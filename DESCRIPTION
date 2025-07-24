@@ -1,8 +1,8 @@
 Package: locits
 Type: Package
 Title: Test of Stationarity and Localized Autocovariance
-Version: 1.7.7
-Date: 2023-09-04
+Version: 1.7.8
+Date: 2025-07-24
 Authors@R: c(person("Guy", "Nason", role=c("aut", "cre"),
 	email="g.nason@imperial.ac.uk"))
 Depends: R (>= 3.3), wavethresh, igraph
@@ -16,8 +16,8 @@ Description: Provides test of second-order stationarity for time
 	Society, Series B, 75, 879-904.  <doi:10.1111/rssb.12015>.
 License: GPL (>= 2)
 NeedsCompilation: yes
-Packaged: 2023-09-05 14:37:03 UTC; gnason
+Packaged: 2025-07-24 11:08:47 UTC; gnason
 Author: Guy Nason [aut, cre]
 Maintainer: Guy Nason <g.nason@imperial.ac.uk>
 Repository: CRAN
-Date/Publication: 2023-09-05 15:10:02 UTC
+Date/Publication: 2025-07-24 16:10:13 UTC

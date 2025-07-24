@@ -1,4 +1,4 @@
-1e0c10563791ea4c068a077ab8d1c52a *DESCRIPTION
+f258b624c81253336d30dcb69b2ac3e8 *DESCRIPTION
 d19039bbf486994ea58f72f8a154644b *NAMESPACE
 93c82e1f5a01d048ed41ce909f1ab53c *R/AutoBestBW.R
 252297964691bed4098fff0bbc8d3f60 *R/Cvarip2.R
@@ -38,14 +38,14 @@ d99b0d4a20bf3f88c5a2dcfc388a33ad *R/summary.tosANYN.R
 9d0c37f1a4032d05253557700a536a13 *R/varip2.R
 fb6d3735ff8952e3b3e838ad07bc9f8f *R/whichlevel.R
 728acd63db15c37b501f6684769bc933 *R/zeropad.R
-7080893e02c49cd296d4424b9be55069 *build/partial.rdb
-9a07301272a88dcc99fc65c5f35457a4 *inst/CHANGES
+1bf18d9c216b8d95033f0bd2fe2906b2 *build/partial.rdb
+e028c736119da9f2ec3d807627050c6c *inst/CHANGES
 d5175126aae362f1c41acb014374a875 *inst/CITATION
 d8caf5da99b2efbf2b2467c8a6d37054 *man/AutoBestBW.Rd
 5b080d025c4bde40a5e822a8fc0559a5 *man/Cvarip2.Rd
-35fe8cdc3a918ca6374190ba04faa589 *man/EstBetaCov.Rd
+b48af1c755f6bcde873af3b1ad5fb160 *man/EstBetaCov.Rd
 b9bea808a813a58e832228abbb8739d2 *man/HwdS.Rd
-0f493ccc9641bd958784dcf713c01a2d *man/Rvarlacf.Rd
+4210210904ae9b2740f01a9dbf61ee5b *man/Rvarlacf.Rd
 aaaaaa3d2787cde31a023d2c29847131 *man/StoreStatistics.Rd
 ce5beccf3de4444cf656e0bf055d52b0 *man/covI.Rd
 c6a516da7c7b48ee335686ffe289eae7 *man/covIwrap.Rd

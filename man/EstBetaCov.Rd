@@ -48,7 +48,7 @@ EstBetaCov(x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
 	version.
 }
   \item{ThePsiJ}{As for \code{mkcoefOBJ} argument but for the
-	autocorrelation wavelet and the function \code{\link{PsiJ}}.
+	autocorrelation wavelet and the function \code{\link[wavethresh]{PsiJ}}.
 }
   \item{Cverbose}{This function called the C routine \code{CstarIcov}
 	if you set \code{Cverbose} to true then the routine instructs
@@ -58,7 +58,7 @@ EstBetaCov(x, nz, filter.number = 1, family = "DaubExPhase", smooth.dev = var,
 	produced.
 }
   \item{OPLENGTH}{Subsidiary parameters for potential call to
-	\code{\link{PsiJ}} function
+	\code{\link[wavethresh]{PsiJ}} function
 }
   \item{ABB.tol}{Tolerance to be passed to \code{\link{AutoBestBW}} function.
 }

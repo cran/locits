@@ -88,3 +88,7 @@
 1.7.6	Added in proper C function prototypes
 
 1.7.7	Removed old table from details in help page for locits-packages
+
+1.7.8	Fixed typo in the help files for Rvarlacf. The reference to eqn
+	on line 104 should have been \eqn. Further, provided anchor package
+	to the link to PsiJ in the EstBetaCov.Rd help page

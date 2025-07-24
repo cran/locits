@@ -101,7 +101,7 @@ Rvarlacf(x, nz, filter.number = 1, family = "DaubExPhase",
   \item{truedenom}{If TRUE use the actual number of terms in the sum as
 	the denominator in the formula for the calculation of the
 	covariance of the smoothed periodogram. If FALSE use the
-	eqn{(2s+1)^{-2}} (this was the default in versions prior to
+	\eqn{(2s+1)^{-2}} (this was the default in versions prior to
 	1.7.4)
 }
   \item{\dots}{
